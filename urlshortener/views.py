@@ -28,6 +28,5 @@ class ShortenerViewSet(viewsets.ModelViewSet):
         serializer = ShortenerSerializer(queryset, many=True)
         return Response(serializer.data)
 
-
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
