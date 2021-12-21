@@ -11,7 +11,7 @@ class ShortenerViewSet(viewsets.ModelViewSet):
     lookup_field = 'short_url'
 
     def retrieve(self, request, short_url=None):
-        queryset = Shortener.objects.all()
+        queryset = self.get_queryset()
         shortener = get_object_or_404(queryset, short_url=short_url)
 
         shortener.times_followed += 1
